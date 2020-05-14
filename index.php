@@ -108,7 +108,7 @@ $lots = [
         </div>
         <ul class="lots__list">
 
-            <? foreach ($array as $item) {?>
+            <? foreach ($lots as $item) {?>
                 <li class="lots__item lot">
                     <div class="lot__image">
                         <img src="<?=$item['img_url']?>" width="350" height="260" alt="">
