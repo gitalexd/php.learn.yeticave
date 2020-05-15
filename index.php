@@ -15,42 +15,51 @@ $categories = [
 $lots = [
     1 => [
         'name' => '2014 Rossignol District Snowboard',
-        'count' => '10999',
+        'price' => '10999',
         'img_url' => 'img/lot-1.jpg',
         'category' => 'Доски и лыжи'
     ],
 
     2 => [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
-        'count' => '159999',
+        'price' => '159999',
         'img_url' => 'img/lot-2.jpg',
         'category' => 'Доски и лыжи'
     ],
     3 => [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
-        'count' => '8000',
+        'price' => '8000',
         'img_url' => 'img/lot-3.jpg',
         'category' => 'Крепления'
     ],
     4 => [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
-        'count' => '10999',
+        'price' => '10999',
         'img_url' => 'img/lot-4.jpg',
         'category' => 'Ботинки'
     ],
     5 => [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',
-        'count' => '7500',
+        'price' => '7500',
         'img_url' => 'img/lot-5.jpg',
         'category' => 'Одежда'
     ],
     6 => [
         'name' => 'Маска Oakley Canopy',
-        'count' => '5400',
+        'price' => '5400',
         'img_url' => 'img/lot-6.jpg',
         'category' => 'Разное'
     ],
 ];
+
+function price($price) {
+    $price = ceil($price);
+    if ($price>=1000) {
+        $price = number_format($price, 0, '', ' ');
+    }
+    return $price . '$';
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -108,18 +117,18 @@ $lots = [
         </div>
         <ul class="lots__list">
 
-            <? foreach ($lots as $item) {?>
+            <? foreach ($lots as $lot) {?>
                 <li class="lots__item lot">
                     <div class="lot__image">
-                        <img src="<?=$item['img_url']?>" width="350" height="260" alt="">
+                        <img src="<?=$lot['img_url']?>" width="350" height="260" alt="">
                     </div>
                     <div class="lot__info">
-                        <span class="lot__category"><?=$item['category']?></span>
-                        <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?=$item['name']?></a></h3>
+                        <span class="lot__category"><?=$lot['category']?></span>
+                        <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?=$lot['name']?></a></h3>
                         <div class="lot__state">
                             <div class="lot__rate">
-                                <span class="lot__amount"><?=$item['count']?></span>
-                                <span class="lot__cost">цена<b class="rub">р</b></span>
+                                <span class="lot__amount"><?=$lot['count']?></span>
+                                <span class="lot__cost"><?=price($lot['price'])?><b class="rub">р</b></span>
                             </div>
                             <div class="lot__timer timer">
                                 12:23
