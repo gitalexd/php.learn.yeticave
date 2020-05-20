@@ -33,8 +33,14 @@
                             <span class="lot__amount"><?=$lot['count']?></span>
                             <span class="lot__cost"><?=price($lot['price'])?><b class="rub">р</b></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                    <?
+                    $diff = dt_diff($lot['expire_data']);
+                    $hours = $diff[0];
+                    $minutes = $diff[1];
+
+                        ?>
+                        <div class="lot__timer timer <? if ($hours<=5) echo 'timer--finishing';?>">
+                           <?= $hours . ':' . $minutes?>
                         </div>
                     </div>
                 </div>

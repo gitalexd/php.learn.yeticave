@@ -17,38 +17,49 @@ $lots = [
         'name' => '2014 Rossignol District Snowboard',
         'price' => '10999',
         'img_url' => 'img/lot-1.jpg',
-        'category' => 'Доски и лыжи'
+        'category' => 'Доски и лыжи',
+        'expire_data' => '2020-05-21'
     ],
 
     2 => [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'price' => '159999',
         'img_url' => 'img/lot-2.jpg',
-        'category' => 'Доски и лыжи'
+        'category' => 'Доски и лыжи',
+        'expire_data' => '2020-05-21'
+
     ],
     3 => [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'price' => '8000',
         'img_url' => 'img/lot-3.jpg',
-        'category' => 'Крепления'
+        'category' => 'Крепления',
+        'expire_data' => '2020-05-21'
+
     ],
     4 => [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'price' => '10999',
         'img_url' => 'img/lot-4.jpg',
-        'category' => 'Ботинки'
+        'category' => 'Ботинки',
+        'expire_data' => '2020-05-22'
+
     ],
     5 => [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',
         'price' => '7500',
         'img_url' => 'img/lot-5.jpg',
-        'category' => 'Одежда'
+        'category' => 'Одежда',
+        'expire_data' => '2020-05-23'
+
     ],
     6 => [
         'name' => 'Маска Oakley Canopy',
         'price' => '5400',
         'img_url' => 'img/lot-6.jpg',
-        'category' => 'Разное'
+        'category' => 'Разное',
+        'expire_data' => '2020-05-24'
+
     ],
 ];
 
@@ -87,6 +98,39 @@ $layout = include_template('templates/layout.php', [
     'title' => $title
 ]);
 
-print ($layout)
+print ($layout);
+
+function dt_diff($d2)
+{
+    // timestamp первой даты
+
+    $ts1 = strtotime(date('Y-m-d H:i:s'));
+
+    // timestamp второй даты
+
+    $ts2 = strtotime($d2);
+
+    // Количество секунд между двумя датами
+
+    $seconds = $ts2 - $ts1;
+
+    // Количество часов нужно округлить в меньшую сторону,
+// чтобы узнать точное количество прошедших часов
+// 3600 - количество секунд в 1 часе
+
+
+    $hours = floor($seconds / 3600);
+
+    //  оставшиеся секунды после получения часов,
+// используем деление по модулю (получим целочисленный остаток от деления)
+    $remain = $seconds % 3600;
+
+    // 60 - количество секунд в 1 минуте
+
+    $minutes = floor($remain / 3600);
+
+    return [$hours, $minutes];
+}
+
 
 ?>
