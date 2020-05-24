@@ -8,7 +8,7 @@ INSERT INTO `category` (`name`, `code`) VALUES
 ('Одежда', 'clothing'),
 ('Разное', 'other')
 
-INSERT INTO `lot` (`created_at`, `name`, `description`, `image`, `start_price`, `expired_at`, `rate_step`) VALUES
+INSERT INTO `lot` (`created_at`, `name`, `description`, `img_url`, `price`, `expire_data`, `rate_step`) VALUES
 ('2020-05-21', '2014 Rossignol District Snowboard', 'Лучший сноуборд в районе', 'img/lot-1.jpg', 10999, '2020-05-22', 10000),
 ('2020-05-21', 'DC Ply Mens 2016/2017 Snowboard', 'Лучший сноуборд в городе', 'img/lot-2.jpg', 159999, '2020-05-22', 10000),
 ('2020-05-21', 'Крепления Union Contact Pro 2015 года размер L/XL', 'Лучший сноуборд в городе', 'img/lot-3.jpg', 8000, '2020-05-22', 10000)

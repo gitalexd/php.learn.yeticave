@@ -8,9 +8,9 @@ CREATE TABLE `lot` (
   `created_at` date,
   `name` VARCHAR (50),
   `description` VARCHAR (50),
-  `image` VARCHAR (255),
-  `start_price` int,
-  `expired_at` date,
+  `img_url` VARCHAR (255),
+  `price` int,
+  `expire_data` date,
   `rate_step` int,
   PRIMARY KEY (`name`)
 )
