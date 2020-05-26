@@ -3,6 +3,28 @@ $is_auth = rand(0, 1);
 
 $user_name = 'alex'; // укажите здесь ваше имя
 
+    $link = mysqli_connect('localhost', 'root', 'root', 'sa.yeticave');
+
+if ($link == false) {
+    print ('Операция не выполнена' . mysqli_connect_error());
+}else{
+    print ('Операция выполнена');
+}
+
+$sql = 'SELECT * FROM lot';
+$result = mysqli_query($link, $sql);
+$lots = mysqli_fetch_all($result, MYSQLI_ASSOC);
+foreach ($lots as $lot) {
+
+}
+
+$sql = 'SELECT * FROM category';
+$result = mysqli_query($link, $sql);
+$categories_arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
+foreach ($categories_arr as $category) {
+    $categories[] = $category['name'];
+}
+
 $categories = [
     'Доски и лыжи',
     'Крепления',
@@ -118,7 +140,6 @@ function dt_diff($d2)
 // чтобы узнать точное количество прошедших часов
 // 3600 - количество секунд в 1 часе
 
-
     $hours = floor($seconds / 3600);
 
     //  оставшиеся секунды после получения часов,
@@ -131,6 +152,5 @@ function dt_diff($d2)
 
     return [$hours, $minutes];
 }
-
 
 ?>
