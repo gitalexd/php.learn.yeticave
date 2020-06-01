@@ -8,7 +8,7 @@ $user_name = 'alex'; // укажите здесь ваше имя
 if ($link == false) {
     print ('Операция не выполнена' . mysqli_connect_error());
 }else{
-    print ('Операция выполнена');
+    //print ('Операция выполнена');
 }
 
 $sql = 'SELECT * FROM lot';
